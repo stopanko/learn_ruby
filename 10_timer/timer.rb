@@ -18,4 +18,8 @@ class Timer
   def time_string
     @time.strftime("%H:%M:%S")
   end
+
+  def padded(t)
+    sprintf("%02d", t)
+  end
 end
