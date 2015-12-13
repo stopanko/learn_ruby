@@ -1,4 +1,5 @@
-module Temp
+class Temperature
+
   def self.ftoc(d)
     (d - 32) * (5.0/9)
   end
@@ -6,9 +7,6 @@ module Temp
   def self.ctof(d)
     (d / (5.0/9)) + 32
   end
-end
-
-class Temperature
 
   def self.from_celsius(celsius)
     self.new(c: celsius)
@@ -24,11 +22,11 @@ class Temperature
   end
 
   def in_fahrenheit
-    @f ? @f : Temp.ctof(@c)
+    @f ? @f : Temperature.ctof(@c)
   end
 
   def in_celsius
-    @c ? @c : Temp.ftoc(@f)
+    @c ? @c : Temperature.ftoc(@f)
   end
 
 end

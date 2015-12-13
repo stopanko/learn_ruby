@@ -97,7 +97,44 @@ describe Temperature do
   # run *all* the tests during your refactoring, to make sure you did it right
   #
   describe "utility class methods" do
+    describe ".ftoc" do
 
+      it "converts freezing temperature" do
+        expect(Temperature.ftoc(32)).to eq 0
+      end
+
+      it "converts boiling temperature" do
+        expect(Temperature.ftoc(212)).to eq 100
+      end
+
+      it "converts body temperature" do
+        expect(Temperature.ftoc(98.6)).to eq 37
+      end
+
+      it "converts arbitrary temperature" do
+        expect(Temperature.ftoc(68)).to eq 20
+      end
+
+    end
+
+    describe ".ctof" do
+
+      it "converts freezing temperature" do
+        expect(Temperature.ctof(0)).to eq 32
+      end
+
+      it "converts boiling temperature" do
+        expect(Temperature.ctof(100)).to eq 212
+      end
+
+      it "converts arbitrary temperature" do
+        expect(Temperature.ctof(20)).to eq 68
+      end
+
+      it "converts body temperature" do
+        expect(Temperature.ctof(37)).to be_within(0.1).of(98.6)
+      end
+    end
   end
 
   # Here's another way to solve the problem!
